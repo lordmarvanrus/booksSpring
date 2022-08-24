@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.Set;
 
 @Component
-@SessionScope
 public class Bookmark {
     private Set<Book> books;
 
@@ -23,7 +22,7 @@ public class Bookmark {
     public Book remove(String bookName) {
         Book deletedBook = null;
         for (Book book : books) {
-            if(book.getName().equals(bookName)) {
+            if (book.getName().equals(bookName)) {
                 deletedBook = book;
                 books.remove(book);
                 break;
@@ -34,5 +33,16 @@ public class Bookmark {
 
     public Set<Book> get() {
         return Collections.unmodifiableSet(books);
+    }
+
+    public Book chooseBook(String bookName) {
+        Book chosenBook = null;
+        for (Book book : books) {
+            if (book.getName().equals(bookName)) {
+                chosenBook = book;
+                break;
+            }
+        }
+        return chosenBook;
     }
 }

@@ -1,9 +1,9 @@
 package com.example.books;
 
 public class Book {
-    private String name;
+    private final String name;
 
-    private Author author;
+    private final Author author;
 
     public Book(String name, Author author) {
         this.name = name;

@@ -9,6 +9,12 @@ public class BooksService {
 
     private Bookmark bookmark;
 
+    private BookReader bookReader;
+
+    public BooksService(BookReader bookReader) {
+        this.bookReader = bookReader;
+    }
+
     public BooksService(Bookmark bookmark) {
         this.bookmark = bookmark;
     }
@@ -25,5 +31,8 @@ public class BooksService {
 
     public Set<Book> get() {
         return bookmark.get();
+    }
+    public Book chooseBook(String bookName) {
+        return bookReader.chooseBook(bookName);
     }
 }
